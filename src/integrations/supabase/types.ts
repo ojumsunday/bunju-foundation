@@ -14,7 +14,129 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      identity_verifications: {
+        Row: {
+          created_at: string
+          decided_at: string | null
+          document_type: string | null
+          failure_reason: string | null
+          id: string
+          provider: string
+          provider_session_id: string | null
+          requires_document_back: boolean
+          status: Database["public"]["Enums"]["identity_verification_status"]
+          submitted_at: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          decided_at?: string | null
+          document_type?: string | null
+          failure_reason?: string | null
+          id?: string
+          provider?: string
+          provider_session_id?: string | null
+          requires_document_back?: boolean
+          status?: Database["public"]["Enums"]["identity_verification_status"]
+          submitted_at?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          decided_at?: string | null
+          document_type?: string | null
+          failure_reason?: string | null
+          id?: string
+          provider?: string
+          provider_session_id?: string | null
+          requires_document_back?: boolean
+          status?: Database["public"]["Enums"]["identity_verification_status"]
+          submitted_at?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          date_of_birth: string
+          first_name: string
+          identity_status: Database["public"]["Enums"]["identity_verification_status"]
+          identity_verified_at: string | null
+          last_name: string
+          resident_address: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          date_of_birth: string
+          first_name: string
+          identity_status?: Database["public"]["Enums"]["identity_verification_status"]
+          identity_verified_at?: string | null
+          last_name: string
+          resident_address: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          date_of_birth?: string
+          first_name?: string
+          identity_status?: Database["public"]["Enums"]["identity_verification_status"]
+          identity_verified_at?: string | null
+          last_name?: string
+          resident_address?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_devices: {
+        Row: {
+          browser_name: string | null
+          created_at: string
+          device_key: string
+          device_name: string
+          id: string
+          is_current: boolean
+          last_active_at: string
+          location_hint: string | null
+          revoked_at: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          browser_name?: string | null
+          created_at?: string
+          device_key: string
+          device_name: string
+          id?: string
+          is_current?: boolean
+          last_active_at?: string
+          location_hint?: string | null
+          revoked_at?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          browser_name?: string | null
+          created_at?: string
+          device_key?: string
+          device_name?: string
+          id?: string
+          is_current?: boolean
+          last_active_at?: string
+          location_hint?: string | null
+          revoked_at?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +145,11 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      identity_verification_status:
+        | "not_started"
+        | "pending"
+        | "verified"
+        | "failed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +276,13 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      identity_verification_status: [
+        "not_started",
+        "pending",
+        "verified",
+        "failed",
+      ],
+    },
   },
 } as const
