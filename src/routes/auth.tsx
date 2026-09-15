@@ -8,9 +8,11 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/auth")({
   ssr: false,
-  validateSearch: (search: Record<string, unknown>) => ({
-    redirect: typeof search.redirect === "string" ? search.redirect : undefined,
-    mode: search.mode === "signin" ? ("signin" as const) : ("signup" as const),
+  validateSearch: (
+    search: Record<string, unknown>,
+  ): { redirect?: string; mode?: "signin" | "signup" } => ({
+    redirect: typeof search['redirect'] === "string" ? (search['redirect'] as string) : undefined,
+    mode: search['mode'] === "signin" ? "signin" : "signup",
   }),
   head: () => ({
     meta: [
