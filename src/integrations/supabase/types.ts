@@ -59,6 +59,69 @@ export type Database = {
         }
         Relationships: []
       }
+      onboarding_answers: {
+        Row: {
+          answer: string
+          created_at: string
+          field_key: string
+          id: string
+          question: string | null
+          role: Database["public"]["Enums"]["onboarding_role"]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          answer: string
+          created_at?: string
+          field_key: string
+          id?: string
+          question?: string | null
+          role: Database["public"]["Enums"]["onboarding_role"]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          answer?: string
+          created_at?: string
+          field_key?: string
+          id?: string
+          question?: string | null
+          role?: Database["public"]["Enums"]["onboarding_role"]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      onboarding_interviews: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          current_step: number
+          role: Database["public"]["Enums"]["onboarding_role"] | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          current_step?: number
+          role?: Database["public"]["Enums"]["onboarding_role"] | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          current_step?: number
+          role?: Database["public"]["Enums"]["onboarding_role"] | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -150,6 +213,7 @@ export type Database = {
         | "pending"
         | "verified"
         | "failed"
+      onboarding_role: "freelancer" | "founder" | "company" | "investor"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -283,6 +347,7 @@ export const Constants = {
         "verified",
         "failed",
       ],
+      onboarding_role: ["freelancer", "founder", "company", "investor"],
     },
   },
 } as const
