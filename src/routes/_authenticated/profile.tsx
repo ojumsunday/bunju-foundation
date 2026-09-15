@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ComingPage } from "@/components/bunju/coming-page";
+export const Route = createFileRoute("/_authenticated/profile")({ head: () => ({ meta: [{ title: "Profile — Bunju" }, { name: "description", content: "Your verified professional identity on Bunju." }, { property: "og:title", content: "Profile — Bunju" }, { property: "og:description", content: "A professional identity built from evidence." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <ComingPage title="Profile" description="Your public identity, work history, verification, and trust signals will appear here." /> });

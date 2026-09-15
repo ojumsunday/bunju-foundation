@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ComingPage } from "@/components/bunju/coming-page";
+export const Route = createFileRoute("/_authenticated/workspaces")({ head: () => ({ meta: [{ title: "Workspaces — Bunju" }, { name: "description", content: "Collaborative spaces for verified Bunju teams." }, { property: "og:title", content: "Workspaces — Bunju" }, { property: "og:description", content: "Where verified teams build together." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <ComingPage title="Workspaces" description="Team projects, deliverables, roles, and shared proof records will live here." /> });
