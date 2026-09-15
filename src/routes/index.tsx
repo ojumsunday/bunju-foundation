@@ -31,9 +31,9 @@ function LandingPage() {
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
           <a href="#philosophy" className="hover:text-foreground">Why Bunju</a>
           <a href="#network" className="hover:text-foreground">For everyone</a>
-          <Button asChild variant="glass"><Link to="/dashboard">Open network</Link></Button>
+          <Button asChild variant="glass"><Link to="/auth" search={{ mode: "signin" }}>Sign in</Link></Button>
         </nav>
-        <Button asChild variant="glass" size="icon" className="md:hidden" aria-label="Open Bunju"><Link to="/dashboard"><Menu /></Link></Button>
+        <Button asChild variant="glass" size="icon" className="md:hidden" aria-label="Open Bunju"><Link to="/auth" search={{ mode: "signup" }}><Menu /></Link></Button>
       </header>
 
       <main>
@@ -47,7 +47,7 @@ function LandingPage() {
               Bunju connects verified talent, founders, companies, and investors around the one signal that travels everywhere: work that stands up to scrutiny.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="rounded-xl"><Link to="/dashboard">Join Bunju <ArrowRight /></Link></Button>
+              <Button asChild size="lg" className="rounded-xl"><Link to="/auth" search={{ mode: "signup" }}>Join Bunju <ArrowRight /></Link></Button>
               <Button asChild size="lg" variant="glass" className="rounded-xl"><a href="#philosophy">See how it works</a></Button>
             </div>
             <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 font-mono text-[10px] uppercase text-muted-foreground">
@@ -98,7 +98,7 @@ function LandingPage() {
         <section className="border-t border-border px-5 py-20 sm:px-8">
           <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
             <div><p className="font-mono text-[10px] uppercase text-primary">Your work already speaks</p><h2 className="mt-3 max-w-2xl font-display text-4xl font-medium sm:text-6xl">Give it a trusted place to be seen.</h2></div>
-            <Button asChild size="lg" className="rounded-xl"><Link to="/dashboard">Build your record <ArrowRight /></Link></Button>
+            <Button asChild size="lg" className="rounded-xl"><Link to="/auth" search={{ mode: "signup" }}>Build your record <ArrowRight /></Link></Button>
           </div>
         </section>
       </main>
