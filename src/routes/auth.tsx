@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 import { ArrowRight, Loader2, ShieldCheck } from "lucide-react";
@@ -111,7 +111,7 @@ function AuthPage() {
   return (
     <div className="min-h-screen">
       <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
-        <Link to="/"><BunjuBrand /></Link>
+        <BunjuBrand />
         <Button variant="glass" onClick={() => setMode(mode === "signup" ? "signin" : "signup")}>
           {mode === "signup" ? "Sign in" : "Create account"}
         </Button>
