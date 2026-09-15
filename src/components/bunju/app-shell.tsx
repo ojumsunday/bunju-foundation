@@ -1,4 +1,6 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Bell, BriefcaseBusiness, ChevronDown, Compass, LayoutDashboard, Menu, MessageSquare,
   Search, Settings, UserRound, WalletCards,
@@ -63,6 +65,16 @@ function SidebarContent() {
 }
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  async function handleSignOut() {
+    await queryClient.cancelQueries();
+    queryClient.clear();
+    await supabase.auth.signOut();
+    navigate({ to: "/auth", search: { mode: "signin" }, replace: true });
+  }
+
   return (
     <div className="mx-auto flex min-h-screen max-w-[1600px]">
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col border-r border-border bg-sidebar/70 backdrop-blur-2xl lg:flex">
@@ -96,7 +108,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-52">
                   <DropdownMenuLabel>My account</DropdownMenuLabel><DropdownMenuSeparator />
-                  <DropdownMenuItem>Public profile</DropdownMenuItem><DropdownMenuItem>Preferences</DropdownMenuItem>
+                  <DropdownMenuItem asChild><Link to="/profile">Public profile</Link></DropdownMenuItem>
+                  <DropdownMenuItem asChild><Link to="/settings">Preferences</Link></DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onSelect={handleSignOut}>Sign out</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
