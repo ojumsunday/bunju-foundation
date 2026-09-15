@@ -1,3 +1,0 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ComingPage } from "@/components/bunju/coming-page";
-export const Route = createFileRoute("/wallet")({ head: () => ({ meta: [{ title: "Wallet — Bunju" }, { name: "description", content: "Visual wallet and settlement overview for Bunju." }, { property: "og:title", content: "Wallet — Bunju" }, { property: "og:description", content: "Track value connected to verified work." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <ComingPage title="Wallet" description="Balances, settlements, and work-linked payment records will appear here." /> });

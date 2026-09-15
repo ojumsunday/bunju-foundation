@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import julianImage from "@/assets/julian-dube.jpg";
 import sarahImage from "@/assets/sarah-kim.jpg";
 
-export const Route = createFileRoute("/dashboard")({
+export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({ meta: [
     { title: "Dashboard — Bunju" },
     { name: "description", content: "Review verified work, trust signals, and network activity on Bunju." },

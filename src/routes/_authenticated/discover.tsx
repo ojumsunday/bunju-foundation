@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ComingPage } from "@/components/bunju/coming-page";
+export const Route = createFileRoute("/_authenticated/discover")({ head: () => ({ meta: [{ title: "Discover — Bunju" }, { name: "description", content: "Discover verified global talent and work on Bunju." }, { property: "og:title", content: "Discover — Bunju" }, { property: "og:description", content: "Find people by demonstrated ability." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <ComingPage title="Discover" description="Talent discovery, proof filters, and trusted recommendations will live here." /> });

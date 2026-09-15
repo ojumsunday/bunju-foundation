@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ComingPage } from "@/components/bunju/coming-page";
+export const Route = createFileRoute("/_authenticated/messages")({ head: () => ({ meta: [{ title: "Messages — Bunju" }, { name: "description", content: "Trusted professional conversations on Bunju." }, { property: "og:title", content: "Messages — Bunju" }, { property: "og:description", content: "Conversations connected to real work." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <ComingPage title="Messages" description="Professional conversations, project invitations, and verification requests will live here." /> });

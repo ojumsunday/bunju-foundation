@@ -1,3 +1,0 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { ComingPage } from "@/components/bunju/coming-page";
-export const Route = createFileRoute("/settings")({ head: () => ({ meta: [{ title: "Settings — Bunju" }, { name: "description", content: "Manage your Bunju visual preferences." }, { property: "og:title", content: "Settings — Bunju" }, { property: "og:description", content: "Manage your Bunju experience." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: () => <ComingPage title="Settings" description="Account, privacy, verification, and notification preferences will appear here." /> });
