@@ -10,7 +10,7 @@ export const Route = createFileRoute("/auth")({
   ssr: false,
   validateSearch: (
     search: Record<string, unknown>,
-  ): { redirect?: string; mode?: "signin" | "signup" } => ({
+  ): { redirect?: string | undefined; mode?: "signin" | "signup" | undefined } => ({
     redirect: typeof search['redirect'] === "string" ? (search['redirect'] as string) : undefined,
     mode: search['mode'] === "signin" ? "signin" : "signup",
   }),
@@ -33,7 +33,7 @@ const inputClass =
 function AuthPage() {
   const { redirect, mode: initialMode } = Route.useSearch();
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signup" | "signin">(initialMode);
+  const [mode, setMode] = useState<"signup" | "signin">(initialMode ?? "signup");
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     firstName: "",
